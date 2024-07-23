@@ -1,15 +1,18 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "strict": true,
-    "lib": [
-      "esnext"
-    ],
-    "types": [
-      "@cloudflare/workers-types"
-    ],
-  },
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": false,
+        "module": "es6",
+        "target": "es2023",
+        "jsx": "react",
+        "skipLibCheck": true,
+        "lib": [
+            "ES2021",
+            "WebWorker"
+        ],
+        "allowJs": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "moduleResolution": "node"
+    }
 }

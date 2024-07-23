@@ -3,7 +3,7 @@ type KVValue = {
     authEndpoint: string
 }
 type Bindings = {
-    REGISTRY_MAPS: KVNamespace
+    REGISTRY_MAPS: Map<string, string>
 }
 type Variables = {
     targetRegistry: string

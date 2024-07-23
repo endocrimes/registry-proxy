@@ -1,0 +1,19 @@
+spin_manifest_version = 2
+
+[application]
+authors = ["Danielle Lancashire <dani@builds.terrible.systems>"]
+description = ""
+name = "hello-world"
+version = "0.1.0"
+
+[[trigger.http]]
+route = "/v2/..."
+component = "registry"
+
+[component.registry]
+source = "target/app.wasm"
+exclude_files = ["**/node_modules"]
+allowed_outbound_hosts = ["*://ghcr.io:*"]
+[component.registry.build]
+command = "npm run build"
+watch = ["src/**/*.ts", "package.json"]
