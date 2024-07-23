@@ -19,10 +19,11 @@ app.get("/auth", async (context)=>{
         headers: context.req.raw.headers,
         redirect: "follow"
     });
-    console.log(targetAuthRequest);
+    console.log("target req", targetAuthRequest);
     const targetAuthResponse = await fetch(targetAuthRequest);
-    console.log(targetAuthResponse);
-    return cloneResponse(targetAuthResponse);
+    const clonedResponse = cloneResponse(targetAuthResponse);
+    console.log("cloned", clonedResponse);
+    return clonedResponse;
 });
 
 app.all("/*", async (context)=>{
@@ -45,5 +46,8 @@ addEventListener('fetch', event => {
     //@ts-ignore
     console.log(event.request);
     //@ts-ignore
-    event.respondWith(app.fetch(event.request));
+    const resp = app.fetch(event.request)
+    console.log("returned", resp);
+    //@ts-ignore
+    event.respondWith(resp);
 })

@@ -7,7 +7,6 @@ interface BearerFields {
 }
 
 const cloneResponse = (response: Response) => {
-    console.log(response);
     return new Response(response.body, response);
 };
 const parseBearerFields = (bearerStr: string) => {
